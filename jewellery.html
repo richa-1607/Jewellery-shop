@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeGems | Premium Jewellery Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fefefe;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            color: #d4af37;
+            margin-right: 10px;
+        }
+        
+        .logo span {
+            color: #d4af37;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 17px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: #d4af37;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #d4af37;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .header-icons i {
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .header-icons i:hover {
+            color: #d4af37;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Button Base Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #d4af37;
+            color: #1a1a2e;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: 2px solid #d4af37;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: #d4af37;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+        
+        .btn-small {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        
+        /* Categories Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 36px;
+            color: #1a1a2e;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: #d4af37;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-img {
+            height: 250px;
+            overflow: hidden;
+            background-color: #f8f9fa;
+        }
+        
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .category-card:hover .category-img img {
+            transform: scale(1.05);
+        }
+        
+        .category-content {
+            padding: 25px;
+        }
+        
+        .category-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+        
+        .category-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        /* AI Video Section */
+        .video-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .video-text {
+            margin-top: 30px;
+            font-size: 18px;
+            color: #555;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Featured Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            background-color: #f8f9fa;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+        
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #d4af37;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .newsletter h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #ccc;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            background-color: #d4af37;
+            color: #1a1a2e;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 50px 50px 0;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #c19b2c;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0f0f1a;
+            color: #ccc;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #d4af37;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #d4af37;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #222;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: #d4af37;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 15px;
+            color: #999;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .categories, .products {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 15px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 17px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                border-radius: 50px;
+                width: 100%;
+            }
+            
+            .video-text {
+                padding: 0 15px;
+            }
+            
+            .btn {
+                padding: 12px 20px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+                display: block;
+            }
+            
+            .btn-small {
+                padding: 10px 18px;
+                font-size: 15px;
+                width: auto;
+                display: inline-block;
+            }
+            
+            .product-card .btn-small {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .categories, .products {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .btn {
+                padding: 10px 18px;
+                font-size: 15px;
+                width: 100%;
+            }
+            
+            .category-content .btn-small {
+                width: 100%;
+            }
+            
+            .newsletter-form button {
+                padding: 16px;
+            }
+            
+            .header-icons {
+                gap: 15px;
+            }
+            
+            .header-icons i {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .logo {
+                font-size: 22px;
+            }
+            
+            nav ul li a {
+                font-size: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 24px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 22px;
+            }
+            
+            .btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+        
+        /* Image fallback styling */
+        .img-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #777;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        /* Button loading state */
+        .btn-loading {
+            position: relative;
+            color: transparent;
+        }
+        
+        .btn-loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(26, 26, 46, 0.3);
+            border-top: 2px solid #1a1a2e;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Add to cart button specific */
+        .add-to-cart-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .add-to-cart-btn::before {
+            content: '\f07a';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-gem"></i>
+                Luxe<span>Gems</span>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#products">Collections</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-shopping-bag"></i>
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Timeless Elegance, Crafted for You</h1>
+            <p>Discover our exclusive collection of premium jewellery, handcrafted with precision and passion. From classic designs to modern masterpieces.</p>
+            <a href="#categories" class="btn">Explore Collection</a>
+        </div>
+    </section>
+
+    <!-- Jewellery Categories -->
+    <div class="container">
+        <h2 class="section-title" id="categories">Jewellery Categories</h2>
+        
+        <div class="categories">
+            <!-- Category 1 -->
+            <div class="category-card">
+                <div class="category-img">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Necklaces">
+                </div>
+                <div class="category-content">
+                    <h3>Necklaces & Pendants</h3>
+                    <p>Elegant necklaces and pendants for every occasion, from delicate chains to statement pieces.</p>
+                    <a href="#" class="btn btn-small">Shop Now</a>
+                </div>
+            </div>
+            
+            <!-- Category 2 - FIXED RING IMAGE -->
+            <div class="category-card">
+                <div class="category-img">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rings">
+                </div>
+                <div class="category-content">
+                    <h3>Necklace</h3>
+                    <p>Exquisite rings featuring diamonds, gemstones, and precious metals for all life's special moments.</p>
+                    <a href="#" class="btn btn-small">Shop Now</a>
+                </div>
+            </div>
+            
+            <!-- Category 3 - FIXED EARRINGS IMAGE -->
+            <div class="category-card">
+                <div class="category-img">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Earrings">
+                </div>
+                <div class="category-content">
+                    <h3>Earrings</h3>
+                    <p>From simple studs to dramatic chandeliers, find the perfect pair to complement your style.</p>
+                    <a href="#" class="btn btn-small">Shop Now</a>
+                </div>
+            </div>
+            
+            <!-- Category 4 -->
+            <div class="category-card">
+                <div class="category-img">
+                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bracelets">
+                </div>
+                <div class="category-content">
+                    <h3>Bracelets & Bangles</h3>
+                    <p>Adorn your wrists with our stunning collection of bracelets, bangles, and cuffs.</p>
+                    <a href="#" class="btn btn-small">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Generated Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">The Art of Jewellery Making</h2>
+            <p style="max-width: 800px; margin: 0 auto 30px; color: #555; font-size: 18px;">Witness the fusion of traditional craftsmanship and modern technology in our AI-generated showcase.</p>
+            
+            <div class="video-container">
+                <!-- AI generated jewellery video -->
+                <video controls poster="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-sparkling-diamond-15875-large.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="video-text">
+                <p>This AI-generated video showcases the intricate process of jewellery design and creation, highlighting how technology enhances traditional craftsmanship to produce exquisite pieces.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <div class="container">
+        <h2 class="section-title" id="products">Featured Collections</h2>
+        
+        <div class="products">
+            <!-- Product 1 - FIXED SOLITAIRE DIAMOND RING IMAGE -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+            >
+                </div>
+                <div class="product-info">
+                    <h3>Solitaire Diamond Earrings</h3>
+                    <p>Exquisite solitaire diamond set in 18K white gold with a brilliant cut.</p>
+                    <span class="price">$2,499</span>
+                    <a href="#" class="btn btn-small add-to-cart-btn">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Product 2 - FIXED PEARL NECKLACE IMAGE -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pearl Necklace">
+                </div>
+                <div class="product-info">
+                    <h3>Classic Pearl Necklace</h3>
+                    <p>Luxurious freshwater pearls with a diamond clasp, 18 inches in length.</p>
+                    <span class="price">$1,850</span>
+                    <a href="#" class="btn btn-small add-to-cart-btn">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Product 3 - FIXED ITALIAN GOLD BRACELET IMAGE -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gold Bracelet">
+                </div>
+                <div class="product-info">
+                    <h3>Italian Gold Bracelet</h3>
+                    <p>Handcrafted 14K gold bracelet with intricate filigree design.</p>
+                    <span class="price">$1,250</span>
+                    <a href="#" class="btn btn-small add-to-cart-btn">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Product 4 - FIXED SAPPHIRE EARRINGS IMAGE -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sapphire Earrings">
+                </div>
+                <div class="product-info">
+                    <h3>Sapphire & Diamond Earrings</h3>
+                    <p>Blue sapphire surrounded by brilliant diamonds in platinum setting.</p>
+                    <span class="price">$3,200</span>
+                    <a href="#" class="btn btn-small add-to-cart-btn">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated with Our Latest Collections</h2>
+            <p>Subscribe to our newsletter and be the first to know about new arrivals, exclusive offers, and jewellery care tips.</p>
+            
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn-small" style="border-radius: 0 50px 50px 0;">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>LuxeGems</h3>
+                    <p>Since 1995, LuxeGems has been creating exquisite jewellery that celebrates life's most precious moments with unparalleled craftsmanship.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#products">Collections</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Jewellery Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Diamond Street, New York, NY 10001</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@luxegems.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 10AM - 8PM, Sun: 12PM - 6PM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 LuxeGems. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #d4af37;"></i> for jewellery lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const submitBtn = this.querySelector('button[type="submit"]');
+            
+            if(email) {
+                // Show loading state
+                const originalText = submitBtn.textContent;
+                submitBtn.classList.add('btn-loading');
+                submitBtn.textContent = '';
+                submitBtn.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    submitBtn.classList.remove('btn-loading');
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    
+                    alert(`Thank you for subscribing with ${email}! You'll receive our latest updates soon.`);
+                    this.reset();
+                }, 1500);
+            }
+        });
+        
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productCard = this.closest('.product-card');
+                const productName = productCard.querySelector('h3').textContent;
+                const productPrice = productCard.querySelector('.price').textContent;
+                
+                // Show loading state
+                const originalText = this.textContent;
+                this.classList.add('btn-loading');
+                this.textContent = '';
+                this.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    this.classList.remove('btn-loading');
+                    this.textContent = originalText;
+                    this.disabled = false;
+                    
+                    // Update cart icon
+                    const cartIcon = document.querySelector('.fa-shopping-bag');
+                    cartIcon.style.color = '#d4af37';
+                    setTimeout(() => {
+                        cartIcon.style.color = '';
+                    }, 1000);
+                    
+                    alert(`Added to cart: ${productName} - ${productPrice}`);
+                }, 1000);
+            });
+        });
+        
+        // Video play/pause on hover for better UX
+        const video = document.querySelector('video');
+        if(video) {
+            video.addEventListener('mouseenter', function() {
+                this.controls = true;
+            });
+            
+            video.addEventListener('mouseleave', function() {
+                if(!this.paused) return;
+                this.controls = false;
+            });
+        }
+        
+        // Search functionality
+        document.querySelector('.fa-search').addEventListener('click', function() {
+            const searchTerm = prompt('What jewellery are you looking for?');
+            if(searchTerm && searchTerm.trim() !== '') {
+                alert(`Searching for: "${searchTerm}"\n\nThis feature would show results in a full implementation.`);
+            }
+        });
+        
+        // Shopping cart click
+        document.querySelector('.fa-shopping-bag').addEventListener('click', function() {
+            alert('Your shopping cart is empty.\n\nAdd some beautiful jewellery to your cart!');
+        });
+        
+        // User account click
+        document.querySelector('.fa-user').addEventListener('click', function() {
+            alert('Account Login/Signup\n\nThis would open a login modal in a full implementation.');
+        });
+        
+        // Image error handling (fallback solution)
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+                const parent = this.parentElement;
+                parent.classList.add('img-fallback');
+                parent.textContent = this.alt || 'Jewellery Image';
+            });
+        });
+        
+        // Make all buttons responsive
+        function updateButtonSizes() {
+            const buttons = document.querySelectorAll('.btn');
+            const windowWidth = window.innerWidth;
+            
+            buttons.forEach(button => {
+                if(windowWidth < 576) {
+                    button.style.padding = '10px 18px';
+                    button.style.fontSize = '15px';
+                    if(!button.classList.contains('btn-small')) {
+                        button.style.width = '100%';
+                        button.style.maxWidth = '300px';
+                        button.style.margin = '0 auto';
+                        button.style.display = 'block';
+                    }
+                } else if(windowWidth < 768) {
+                    button.style.padding = '12px 20px';
+                    button.style.fontSize = '16px';
+                    if(!button.classList.contains('btn-small')) {
+                        button.style.width = '100%';
+                        button.style.maxWidth = '300px';
+                        button.style.margin = '0 auto';
+                        button.style.display = 'block';
+                    }
+                } else {
+                    button.style.padding = '';
+                    button.style.fontSize = '';
+                    button.style.width = '';
+                    button.style.margin = '';
+                    button.style.display = '';
+                }
+            });
+        }
+        
+        // Initial call
+        updateButtonSizes();
+        
+        // Update on resize
+        window.addEventListener('resize', updateButtonSizes);
+        
+        // Test all image URLs
+        console.log("Testing image URLs...");
+        const imageUrls = [
+            "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1572567915161-7a5c7fde4e56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    ]
